@@ -1,6 +1,6 @@
 # Multi-View Learning with Context-Guided Receptance for Image Denoising
 
-> [Multi-View Learning with Context-Guided Receptance for Image Denoising](https://arxiv.org/)  
+> [Multi-View Learning with Context-Guided Receptance for Image Denoising](https://arxiv.org/abs/2505.02705)  
 > Binghong Chen, Tingting Chai, Wei Jiang, Yuanrong Xu, Guanglu Zhou, Xiangqian Wu.  
 > IJCAI 2025
 
