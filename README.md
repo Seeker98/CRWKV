@@ -12,5 +12,10 @@ Our code is built upon the repositories of [TBD](). Thanks for their excellent w
 ## 📑 Citation
 If you find that our work is helpful in your research, please consider citing our paper:
 ```
-@article{}
+@article{chen2025crwkv,
+  title={Multi-View Learning with Context-Guided Receptance for Image Denoising}, 
+  author={Binghong Chen and Tingting Chai and Wei Jiang and Yuanrong Xu and Guanglu Zhou and Xiangqian Wu},
+  journal={arXiv preprint arXiv:2505.02705},
+  year={2025}
+}
 ```
