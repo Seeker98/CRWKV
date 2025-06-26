@@ -1,0 +1,1 @@
+python basicsr/train.py -opt options/train_CRWKV_RealDN.yml

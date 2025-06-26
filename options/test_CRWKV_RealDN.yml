@@ -1,0 +1,100 @@
+# general settings for RealDN training
+name: CRWKV_RealDN
+model_type: ImageCleanModel
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 100
+
+# dataset and data loader settings
+datasets:
+  test_1:
+    name: SIDD_val
+    type: Dataset_PairedImage
+    dataroot_gt:  /your/path/to/data
+    dataroot_lq:  /your/path/to/data
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+  test_2:
+    name: ccnoise
+    type: Dataset_PairedImage
+    dataroot_gt:  /your/path/to/data
+    dataroot_lq:  /your/path/to/data
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+  test_3:
+    name: PolyUDataset
+    type: Dataset_PairedImage
+    dataroot_gt:  /your/path/to/data
+    dataroot_lq:  /your/path/to/data
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+  test_4:
+    name: Urban100GP
+    type: Dataset_PairedImage
+    dataroot_gt:  /your/path/to/data
+    dataroot_lq:  /your/path/to/data
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+
+# network structures
+network_g:
+  type: CRWKV
+  inp_channels: 3
+  out_channels: 3
+  dim: 48
+  num_blocks: [3,4,4,6]
+  num_refinement_blocks: 4
+
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# validation settings
+val:
+  window_size: 8
+  val_freq: !!float 4e3
+  save_img: true
+  rgb2bgr: true
+  use_image: false
+  max_minibatch: 8
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 1000
+  save_checkpoint_freq: !!float 4e3
+  use_tb_logger: true
+  wandb:
+    project: "CRWKV RealDN"
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
+
+# training settings
+# i dont' know why should keep this training settings in a test file
+# but delete this will cause an error
+train:
+  mixing_augs:
+    mixup: true
+    mixup_beta: 1.2
+    use_identity: true

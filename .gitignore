@@ -1,0 +1,31 @@
+# 字节码和缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 虚拟环境目录
+venv/
+.venv/
+env/
+.env/
+venv.bak/
+
+# 敏感信息文件 (非常重要！)
+# 永远不要将包含密码、API密钥的文件上传到GitHub
+.env
+*.env
+
+# IDE 和编辑器目录
+.vscode/
+.idea/
+
+# 构建和分发产物
+build/
+dist/
+*.egg-info/
+
+# 测试和覆盖率报告
+.pytest_cache/
+.coverage
+htmlcov/
